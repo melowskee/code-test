@@ -144,6 +144,20 @@ export default {
         this.flashError('End Date required');
         valid = false;
       }
+
+      var isChecked=false;
+
+      $('.form-check-input').each(function(){
+        console.log($(this).is(':checked'));
+          if ($(this).is(':checked')){
+              isChecked=true;
+              return;
+          }   
+      })
+      if (!isChecked) {
+        this.flashError('Day/s of Week required');
+        valid = false;
+      }
       if(valid){
         //console.log(this.newEvent.dow);
         axios
